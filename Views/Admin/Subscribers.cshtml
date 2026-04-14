@@ -1,0 +1,27 @@
+@model List<BlogProject.Models.Subscriber>
+@{
+    ViewData["Title"] = "Subscribers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Subscriber List</h2>
+
+<a href="/Admin" class="btn btn-link mb-3">← Back to Admin Panel</a>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Email</th>
+            <th>Subscribed At (UTC)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sub in Model)
+        {
+            <tr>
+                <td>@sub.Email</td>
+                <td>@sub.SubscribedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

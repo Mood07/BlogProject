@@ -1,0 +1,23 @@
+# Build outputs
+bin/
+obj/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# User secrets & environment
+appsettings.Development.json
+*.user
+.env
+
+# VS / Rider
+.vs/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db

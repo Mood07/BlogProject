@@ -1,0 +1,33 @@
+@model List<BlogProject.Models.BlogPost>
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Latest Blog Posts</h2>
+
+@if (!Model.Any())
+{
+    <p>No blog posts found.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var post in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(post.ImagePath))
+                    {
+                        <img src="@post.ImagePath" class="card-img-top" alt="@post.Title" style="max-height: 200px; object-fit: cover;">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@post.Title</h5>
+                        <p class="card-text">@post.Content.Substring(0, Math.Min(100, post.Content.Length))...</p>
+                        <a href="/Blog/Details/@post.Id" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

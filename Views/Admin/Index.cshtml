@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Welcome to the Admin Panel!</h2>
+</div>
+
+<div class="list-group">
+    <a href="/Admin/Manage" class="list-group-item list-group-item-action">📝 Manage Blog Posts</a>
+    <a href="/Admin/Create" class="list-group-item list-group-item-action">➕ Create New Post</a>
+    <a href="/Admin/Subscribers" class="list-group-item list-group-item-action">📬 View Subscribers</a>
+    <a href="/Admin/Donations" class="list-group-item list-group-item-action">💳 View Donations</a>
+</div>

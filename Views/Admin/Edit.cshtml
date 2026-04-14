@@ -1,0 +1,43 @@
+@model BlogProject.Models.BlogPost
+@{
+    ViewData["Title"] = "Edit Blog Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Edit Blog Post</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Content">Content</label>
+        <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Current Image</label><br />
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" alt="Post Image" style="max-width: 200px;" />
+        }
+        else
+        {
+            <p>No image uploaded.</p>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="ImageFile">Replace Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="/Admin" class="btn btn-secondary ms-2">Cancel</a>
+</form>

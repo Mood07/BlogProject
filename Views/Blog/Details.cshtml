@@ -1,0 +1,18 @@
+@model BlogProject.Models.BlogPost
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="/Blog" class="btn btn-link mb-3">← Back to Blog</a>
+
+<div class="mb-4">
+    <h2>@Model.Title</h2>
+
+    @if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        <img src="@Model.ImagePath" alt="@Model.Title" class="img-fluid my-3" />
+    }
+
+    <p>@Model.Content</p>
+</div>

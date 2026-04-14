@@ -1,0 +1,27 @@
+@model List<BlogProject.Models.Donation>
+@{
+    ViewData["Title"] = "Donations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Donation Records</h2>
+
+<a href="/Admin" class="btn btn-link mb-3">← Back to Admin Panel</a>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Email</th>
+            <th>Donated At (UTC)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Email</td>
+                <td>@item.DonatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Donate";
+}
+
+<h2>Support Our Blog</h2>
+
+<form method="post" asp-action="CreateCheckoutSession">
+    <div class="mb-3">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="amount">Donation Amount (USD)</label>
+        <input type="number" name="amount" class="form-control" min="1" placeholder="Enter amount e.g. 10" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Donate Now</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info mt-3">
+        @ViewBag.Message
+    </div>
+}
